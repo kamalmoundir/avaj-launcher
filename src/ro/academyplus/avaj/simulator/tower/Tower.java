@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Tower
 {
 
-	private List<Flyable> observers = new  ArrayList();
+	private List<Flyable> observers = new  ArrayList<Flyable>();
 
 	public void register(Flyable p_flyable){
 	

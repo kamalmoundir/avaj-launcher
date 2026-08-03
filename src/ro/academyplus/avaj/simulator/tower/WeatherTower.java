@@ -2,18 +2,18 @@ package  ro.academyplus.avaj.simulator.tower;
 
 import ro.academyplus.avaj.simulator.Coordinates;
 
+
 public class WeatherTower extends Tower{
 
 
 public String getWeather(Coordinates p_coordinates)
 {
-
-    return "";
+    return WeatherProvider.getInstance().getCurrentWeather(p_coordinates);
 }
 
-void changeWeather()
+public void changeWeather()
 {
-
+    this.conditionChanged();
 }
 
 
