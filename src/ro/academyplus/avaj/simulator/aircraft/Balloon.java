@@ -4,9 +4,9 @@ import ro.academyplus.avaj.simulator.Coordinates;
 //import ro.academyplus.avaj.simulator.aircraft.*;
 //import ro.academyplus.avaj.simulator.tower.*;
 
-public class Baloon extends Aircraft{
+public class Balloon extends Aircraft{
 
-    public Baloon(long p_id, String p_name, Coordinates p_coordinates){
+    public Balloon(long p_id, String p_name, Coordinates p_coordinates){
 
        super(p_id, p_name, p_coordinates);
     } 
