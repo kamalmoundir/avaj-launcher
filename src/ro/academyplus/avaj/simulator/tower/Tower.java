@@ -18,12 +18,15 @@ public class Tower
 
 	public void unregister(Flyable p_flyable){
 		observers.remove(p_flyable);
+		System.out.println("Tower says: " + p_flyable + " unregistered from weather tower.");
 	}
 
 
 	protected void conditionChanged(){
 
-		for(Flyable flyable : observers){
+		ArrayList<Flyable> listFlyables = new ArrayList<>(observers);
+
+		for(Flyable flyable : listFlyables){
 			flyable.updateConditions();
 		}
 	
