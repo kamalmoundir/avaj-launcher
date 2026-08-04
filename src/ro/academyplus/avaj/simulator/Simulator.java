@@ -1,7 +1,9 @@
 package ro.academyplus.avaj.simulator;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 import ro.academyplus.avaj.simulator.aircraft.AircraftFactory;
@@ -21,6 +23,7 @@ public class Simulator {
         }
         String file = args[0];
         try {
+            
 
             BufferedReader reader = new BufferedReader( new FileReader(file));
 
@@ -60,7 +63,7 @@ public class Simulator {
             }
 
 
-
+           
             reader.close();
         } catch (Exception e) {
              System.out.println(e);
