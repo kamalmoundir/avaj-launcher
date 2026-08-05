@@ -1,48 +1,49 @@
 package ro.academyplus.avaj.simulator;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.ArrayList;
 
 import ro.academyplus.avaj.simulator.aircraft.AircraftFactory;
 import ro.academyplus.avaj.simulator.aircraft.Flyable;
-import ro.academyplus.avaj.simulator.tower.Tower;
 import ro.academyplus.avaj.simulator.tower.WeatherTower;
+import ro.academyplus.avaj.simulator.utils.*;
+
 
 public class Simulator {
 
-    
     public static void main(String[] args) {
-        
-        if(args.length != 1)
-        {
+
+        if (args.length != 1) {
             System.out.println("Should be one and only one argument file");
             System.exit(1);
         }
         String file = args[0];
         try {
-            
 
-            BufferedReader reader = new BufferedReader( new FileReader(file));
+            OutputRedirector.redirectOutputToFile("simulation.txt");
+
+            BufferedReader reader = new BufferedReader(new FileReader(file));
 
             String line;
-            int  simulatorCount = 0;
+            int simulatorCount = 0;
             boolean firstline = true;
 
             WeatherTower weatherTower = new WeatherTower();
 
-            while((line = reader.readLine()) != null)
-            {
-                if(firstline)
-                {
+            while ((line = reader.readLine()) != null) {
+                if (firstline) {
+                    if(!InvalidScenario.isValidPositiveInt(line)){
+                        throw new InvalidScenarioException("First line should be a positive Integer " + line);
+                    }
                     simulatorCount = Integer.parseInt(line);
+                    
                     firstline = false;
                     continue;
                 }
                 String parts[] = line.split(" ");
-                
+
+                InvalidScenario.validateAircraftLine(parts);
+
                 String type = parts[0];
                 String Name = parts[1];
 
@@ -59,18 +60,13 @@ public class Simulator {
             }
 
             for (int i = 0; i < simulatorCount; i++) {
-                   weatherTower.changeWeather();
+                weatherTower.changeWeather();
             }
 
-
-           
             reader.close();
         } catch (Exception e) {
-             System.out.println(e);
-                e.printStackTrace();
-
+            System.out.println(e.getMessage());
         }
-        
 
     }
 

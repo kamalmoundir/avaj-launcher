@@ -10,5 +10,3 @@ src/ro/academyplus/avaj/simulator/tower/Tower.java
 src/ro/academyplus/avaj/simulator/tower/WeatherTower.java
 src/ro/academyplus/avaj/simulator/tower/WeatherProvider.java
 src/ro/academyplus/avaj/simulator/utils/OutputRedirector.java
-src/ro/academyplus/avaj/simulator/utils/InvalidScenarioException.java
-src/ro/academyplus/avaj/simulator/utils/InvalidScenario.java

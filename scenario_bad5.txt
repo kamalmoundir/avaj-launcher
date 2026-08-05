@@ -1,0 +1,2 @@
+2
+Spaceship S1 10 20 50
